@@ -139,7 +139,7 @@ database.ref().on("child_added", function(childSnapshot) {
 let newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDestination),
-    $("<td>").text(trainFirstTime),
+    //$("<td>").text(trainFirstTime),
     $("<td>").text(trainFrequency),
     $("<td>").text(nextarrival),
     $("<td>").text(minuteAway)
