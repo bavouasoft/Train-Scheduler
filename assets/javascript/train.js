@@ -81,33 +81,32 @@ $("#add-train-btn").on("click", function(event) {
 });
 
 
-getnextarrival = function(trainFirstTime, now, frequence) {
+getdelta = function(trainFirstTime, now, frequence) {
     //return -1;
-    let tinit = moment(trainFirstTime, "HH:mm");//
-    let tnow = moment(now, "HH:mm");//
+    let tinit = moment(trainFirstTime, 'HH:mm');//
+    let tnow = moment(now, 'HH:mm');//
     let _diff = tnow.diff(tinit,'minutes');
     let alpha = Math.ceil(_diff / frequence );
     let interval = (alpha * frequence);
     let tdelta =  tinit.add(interval, 'minutes');
-
-    // good let resp = moment (tdelta, "HH:mm");
-    let resp = moment (tdelta, 'minutes');
-
-
-
-
-
-
-
-    return resp;
-
-
-//console.log(a.diff(b, 'minutes')) // 44700
-//console.log(a.diff(b, 'hours')) // 745
-//console.log(a.diff(b, 'days')) // 31
-//console.log(a.diff(b, 'weeks')) // 4
-
+    return tdelta; //object moment
 }
+
+
+getnextarrival = function(tdelta) {
+    let resp =  tdelta.format('HH:mm');
+    return resp; // string object
+}
+    
+
+getminuteAway = function(_now,tdelta) {
+    let _diff = tdelta.diff(_now,'minutes');
+    return _diff;
+    
+};
+
+///next arrival next arrival - current time
+
 // 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function(childSnapshot) {
 
@@ -119,17 +118,21 @@ database.ref().on("child_added", function(childSnapshot) {
     let trainFirstTime = childSnapshot.val().firstTime;
     let trainFrequency = childSnapshot.val().frequency;
 
-
-    let  _now = new moment();
-    let now = _now.format("HH:mm")
-
-    let nextarrival = getnextarrival(trainFirstTime, now, trainFrequency );
-
+    let  _now = new moment(); //current time
+    let now = _now.format('HH:mm') // 
+    let tdelta =  getdelta(trainFirstTime, now, trainFrequency );
+    let nextarrival = getnextarrival(tdelta);
+    let minuteAway = getminuteAway(_now,tdelta);
+    // minute away function of current time and next arrival time
+ 
         // Employee Info Store everything into a variable.
         console.log(trainName);
         console.log(trainDestination);
         console.log(trainFirstTime);
         console.log(trainFrequency);
+    
+        
+
 
 
 //New rows appended
@@ -138,14 +141,14 @@ let newRow = $("<tr>").append(
     $("<td>").text(trainDestination),
     $("<td>").text(trainFirstTime),
     $("<td>").text(trainFrequency),
-    $("<td>").text(nextarrival)
+    $("<td>").text(nextarrival),
+    $("<td>").text(minuteAway)
   );
 
     // Append rows to the table
     $("#train-table > tbody").append(newRow);
 ///////////////////////////
-       // let trainFirstTimePretty = moment.unix(trainFirstTime).format("HH:mm");
-
+       
 
 
 
