@@ -1,5 +1,5 @@
 //
-//default data should be in the table
+//default data should be in
 //default data include
 //train name
 //destination
