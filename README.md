@@ -9,8 +9,10 @@ Moment.js is used here to manipulate the informations. The pertinent up to date 
 - Destination
 - First Train Time -- in military time
 - Frequency -- in minutes
-  Time Calcutation:
-  Calculate when the next train will arrive; relative to the current time.
+
+## Time Calcutation:
+
+Calculate when the next train will arrive; relative to the current time.
 
 ## Technologies Used
 
