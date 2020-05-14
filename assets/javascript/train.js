@@ -3,7 +3,7 @@
 //
 //
 //
-//first
+//
 //frequency
 
 //Start with entering first: train name/destination/first train time/frequency
