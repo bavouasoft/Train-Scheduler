@@ -8,7 +8,7 @@
 
 //
 //
-//containing  train name / destination / frequency / Next arrival /
+//
 //next arrival and to the destination will be calculated on the basis of frequency entered
 //minutes aways from arrival will be calculated on the basis of frequency entered
 
