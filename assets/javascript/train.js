@@ -1,7 +1,7 @@
 //
 //
 //
-//train
+//
 //destination
 //first train time
 //frequency
