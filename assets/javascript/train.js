@@ -7,7 +7,7 @@
 //
 
 //
-//initial .on("click") should generate new html rows
+//initial .on("click") should generate
 //containing  train name / destination / frequency / Next arrival / number of minutes away
 //next arrival and to the destination will be calculated on the basis of frequency entered
 //minutes aways from arrival will be calculated on the basis of frequency entered
