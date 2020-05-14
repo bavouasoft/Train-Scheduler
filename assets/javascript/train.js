@@ -9,7 +9,7 @@
 //
 //
 //
-//next arrival and to the destination
+
 //minutes aways from arrival will be calculated on the basis of frequency entered
 
 // Steps to complete:
