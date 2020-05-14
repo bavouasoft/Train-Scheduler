@@ -1,6 +1,6 @@
 //
 //
-//default data
+//
 //train name
 //destination
 //first train time
