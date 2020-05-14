@@ -4,7 +4,7 @@
 //
 //
 //
-//frequency
+//
 
 //Start with entering first: train name/destination/first train time/frequency
 //initial .on("click") should generate new html rows
